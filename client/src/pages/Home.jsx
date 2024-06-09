@@ -3,8 +3,8 @@ import React from 'react'
 
 export default function Home() {
   return (
-    <div className='text 6xl text-center text-red-700'>
-      LOVE YOU BANGARA
+    <div className='text 6xl text-center text-slate-900'>
+      HOME
     </div>
   )
 }

@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -24,7 +25,7 @@ export default function SignIn() {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch('/api/auth/signin', {
+      const res = await fetch('/server/auth/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -32,7 +33,8 @@ export default function SignIn() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-      if (!data.success) {
+      console.log(data); 
+      if (data.success === false) {
         dispatch(signInFailure(data.message));
         return;
       }
