@@ -30,6 +30,7 @@ export default function Profile() {
   const [showListingsError,setShowListingsError]=useState(false);
   const [formData, setFormData] = useState({});
   const [userListings,setUserListings] =  useState([]);
+  
   const dispatch = useDispatch();
 
 
@@ -138,6 +139,25 @@ export default function Profile() {
       setUserListings(data);
     } catch (error) {
       setShowListingsError(true);
+    }
+  };
+
+  const handleListingDelete = async (listingId) => {
+    try {
+      const res = await fetch(`/server/listing/delete/${listingId}`, {
+        method: 'DELETE',
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        console.log(data.message);
+        return;
+      }
+
+      setUserListings((prev) =>
+        prev.filter((listing) => listing._id !== listingId)
+      );
+    } catch (error) {
+      console.log(error.message);
     }
   };
 
