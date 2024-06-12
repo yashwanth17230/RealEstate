@@ -7,4 +7,6 @@ export const createListing = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
-}
+};
+ 
+
