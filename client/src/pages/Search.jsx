@@ -1,5 +1,6 @@
 import  { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LIstingItem from '../components/LIstingItem';
 
 export default function Search() {
     const navigate = useNavigate();
@@ -14,7 +15,6 @@ export default function Search() {
       });
         const [loading, setLoading] = useState(false);
         const [listings, setListings] = useState([]);
-        console.log(listings);
         const [showMore, setShowMore] = useState(false);
 
       useEffect(() => {
@@ -177,7 +177,7 @@ export default function Search() {
                   className='border rounded-lg p-3'
                 >
                   <option value='regularPrice_desc'>Price high to low</option>
-                  <option value='regularPrice_asc'>Price low to hight</option>
+                  <option value='regularPrice_asc'>Price low to high</option>
                   <option value='createdAt_desc'>Latest</option>
                   <option value='createdAt_asc'>Oldest</option>
                 </select>
@@ -191,6 +191,22 @@ export default function Search() {
             <h1 className='text-3xl font-semibold border-b p-3 text-slate-700 mt-5'>
               Listing results:
             </h1>
+            <div className='p-7 flex flex-wrap gap-4'>
+              {!loading && listings.length===0 &&(
+                <p className='text-xl text-slate-900'>No Listing Found !</p>
+              )}
+              {loading && (
+                <p className='text-xl text-slate-700 text-center w-full'>
+                  Loading...
+                </p>
+              )}
+              {!loading &&
+            listings &&
+            listings.map((listing) => (
+              <LIstingItem key={listing._id} listing={listing} />
+            ))}
+                          
+            </div>
           </div>
         </div>
       );

@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-undef
+/* eslint-disable no-undef */
+
 module.exports = {
   content: [
     "./index.html",
@@ -7,5 +8,8 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+    // ...
+  ],
 }
