@@ -57,7 +57,7 @@ export default function Home() {
         lg:text-5xl'>Finding the <span className='text-pink-700'>perfect home</span>
         <br/>
          for your family is our mission...</h1>
-         <div className='text-gray-400 text-s sm:text-sm '>
+         <div className='text-gray-400 text-s sm:text-sm font-semibold'>
           we turn your real estate dreams into reality,we help you find the perfect place to call home.
           <br />
           our expert support are always available.
@@ -67,7 +67,7 @@ export default function Home() {
       </div>
 
       {/* images */}
-      <Swiper navigation>
+      <Swiper navigation className=''>
       { offerListings && offerListings.length > 0 && offerListings.map((listing)=>(
             <SwiperSlide>
               <div style={{
