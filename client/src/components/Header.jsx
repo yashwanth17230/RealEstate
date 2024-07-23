@@ -2,7 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import logo from '/Users/YASHWANTH R/Downloads/pngtree-real-estate-logohome-logohouse-logosimple-design-image_56618.jpg'; // Replace with the correct path to your logo
+import logo from '/Users/YASHWANTH R/Documents/Project_Internship/Real_Estate/client/public/logo/pngtree-real-estate-logohome-logohouse-logosimple-design-image_56618.jpg'; 
 
 export default function Header() {
   const { currentUser } = useSelector(state => state.user);
