@@ -18,7 +18,7 @@ export default function CreateListing() {
     imageUrls: [],
     name: '',
     description: '',
-    address: ''
+    address: '',
     type: 'rent',
     bedrooms: 1,
     bathrooms: 1,
