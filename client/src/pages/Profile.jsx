@@ -18,6 +18,7 @@ import {
 } from '../redux/user/userSlice';
 import { useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom';
+import { getFallbackImage } from '../fallbackImages';
 
 export default function Profile() {
   const fileRef = useRef(null);
@@ -254,12 +255,12 @@ export default function Profile() {
             >
               <Link to={`/listing/${listing._id}`}>
                 <img
-                  src={listing.imageUrls[0] || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'}
+                  src={listing.imageUrls[0] || getFallbackImage(listing._id)}
                   alt='listing cover'
                   className='h-16 w-16 object-contain'
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+                    e.target.src = getFallbackImage(listing._id);
                   }}
                 />
               </Link>

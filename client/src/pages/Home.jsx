@@ -8,6 +8,7 @@ import { Navigation } from 'swiper/modules';
 import SwiperCore from 'swiper';
 import 'swiper/css/bundle';
 import LIstingItem from '../components/LIstingItem';
+import { getFallbackImage } from '../fallbackImages';
 
 
 export default function Home() {
@@ -73,12 +74,12 @@ export default function Home() {
             <SwiperSlide key={listing._id}>
               <div className='h-[650px] w-full'>
                 <img 
-                  src={listing.imageUrls[0] || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'}
+                  src={listing.imageUrls[0] || getFallbackImage(listing._id)}
                   alt='listing cover'
                   className='h-full w-full object-cover'
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+                    e.target.src = getFallbackImage(listing._id);
                   }}
                 />
               </div>

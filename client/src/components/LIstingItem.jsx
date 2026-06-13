@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { MdLocationOn } from 'react-icons/md';
+import { getFallbackImage } from '../fallbackImages';
 
 export default function LIstingItem({ listing }) {
   return (
@@ -9,13 +10,13 @@ export default function LIstingItem({ listing }) {
         <img
           src={
             listing.imageUrls[0] ||
-            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'
+            getFallbackImage(listing._id)
           }
           alt='listing cover'
           className='h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+            e.target.src = getFallbackImage(listing._id);
           }}
         />
         <div className='p-3 flex flex-col gap-2 w-full'>

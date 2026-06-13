@@ -17,6 +17,7 @@ import {
   FaShare,
 } from 'react-icons/fa';
  import Contact from '../components/Contact';
+ import { getFallbackImage, fallbackImages } from '../fallbackImages';
 
 export default function Listing() {
   SwiperCore.use([Navigation]);
@@ -60,7 +61,7 @@ export default function Listing() {
         <div>
           <Swiper navigation>
             {listing.imageUrls && listing.imageUrls.length > 0 ? (
-              listing.imageUrls.map((url) => (
+              listing.imageUrls.map((url, index) => (
                 <SwiperSlide key={url}>
                   <div
                     className='h-[650px] w-full'
@@ -71,7 +72,7 @@ export default function Listing() {
                       className='h-full w-full object-cover'
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+                        e.target.src = fallbackImages[index % fallbackImages.length];
                       }}
                     />
                   </div>
@@ -81,7 +82,7 @@ export default function Listing() {
               <SwiperSlide>
                 <div className='h-[650px] w-full'>
                   <img
-                    src='https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'
+                    src={getFallbackImage(listing._id)}
                     alt='listing image fallback'
                     className='h-full w-full object-cover'
                   />
