@@ -6,12 +6,23 @@ import { initializeApp } from "firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "real-estate-84571.firebaseapp.com",
-  projectId: "real-estate-84571",
-  storageBucket: "real-estate-84571.appspot.com",
-  messagingSenderId: "193476405961",
-  appId: "1:193476405961:web:a21527ebbd732f62c77b18"
+  authDomain: "eliteestates-a286c.firebaseapp.com",
+  projectId: "eliteestates-a286c",
+  storageBucket: "eliteestates-a286c.firebasestorage.app",
+  messagingSenderId: "931261998187",
+  appId: "1:931261998187:web:9283194ac80a7afeb1bd2e",
+  measurementId: "G-TZTCPEQ0KF"
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAZXWSBeEPQscIQ5uc2xmO1VRHeQFSn4RU",
+//   authDomain: "eliteestates-a286c.firebaseapp.com",
+//   projectId: "eliteestates-a286c",
+//   storageBucket: "eliteestates-a286c.firebasestorage.app",
+//   messagingSenderId: "931261998187",
+//   appId: "1:931261998187:web:9283194ac80a7afeb1bd2e",
+//   measurementId: "G-TZTCPEQ0KF"
+// };
