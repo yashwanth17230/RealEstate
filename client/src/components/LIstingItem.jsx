@@ -8,10 +8,15 @@ export default function LIstingItem({ listing }) {
       <Link to={`/listing/${listing._id}`}>
         <img
           src={
-            listing.imageUrls[0] 
+            listing.imageUrls[0] ||
+            'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'
           }
           alt='listing cover'
           className='h-[320px] sm:h-[220px] w-full object-cover hover:scale-105 transition-scale duration-300'
+          onError={(e) => {
+            e.target.onerror = null;
+            e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+          }}
         />
         <div className='p-3 flex flex-col gap-2 w-full'>
           <p className='truncate text-lg font-semibold text-slate-700'>

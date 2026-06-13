@@ -70,14 +70,18 @@ export default function Home() {
       {/* images */}
       <Swiper navigation className=''>
       { offerListings && offerListings.length > 0 && offerListings.map((listing)=>(
-            <SwiperSlide>
-              <div style={{
-                  background: `url(${listing.imageUrls[0]}) center no-repeat`, 
-                  backgroundSize: 'cover',
-                }} 
-                className='h-[650px]' 
-                key={listing._id}
-              ></div>
+            <SwiperSlide key={listing._id}>
+              <div className='h-[650px] w-full'>
+                <img 
+                  src={listing.imageUrls[0] || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80'}
+                  alt='listing cover'
+                  className='h-full w-full object-cover'
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=1000&q=80';
+                  }}
+                />
+              </div>
             </SwiperSlide>
         ))}
       </Swiper>
