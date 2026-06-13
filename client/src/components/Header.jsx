@@ -2,7 +2,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import logo from '/Users/YASHWANTH R/Documents/Projects/Real_Estate/Black and White Modern Professional Real Estate Agency Logo.png'; 
+// import logo from '/Users/YASHWANTH R/Documents/Projects/Real_Estate/Black and White Modern Professional Real Estate Agency Logo.png'; 
 
 export default function Header() {
   const { currentUser } = useSelector(state => state.user);
@@ -28,10 +28,11 @@ export default function Header() {
   return (
     <header className='bg-blue-100 shadow-md'>
       <div className='flex justify-between items-center max-w-6xl mx-auto p-3'>
-        
+
         <Link to="/">
           <div className='flex items-center'>
-            <img src={logo} alt="Logo" className='h-15 w-12 mr-2 rounded-3xl shadow-xl ' /> {/* Adjust the size as needed */}
+            {/* <img src={logo} alt="Logo" className='h-15 w-12 mr-2 rounded-3xl shadow-xl ' /> */}
+            {/* Adjust the size as needed */}
             <h1 className='font-bold text-sm sm:text-xl flex flex-wrap'>
               <span className='text-teal-700'>Elite</span>
               <span className='text-slate-900'>Estates</span>
